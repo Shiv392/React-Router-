@@ -4,11 +4,21 @@ import Footer from "./Footer";
 import Dashboard from "./Dashboard";
 import { Outlet } from "react-router-dom";
 
+const sectionStyle={
+    'display':'flex',
+    'justifyContent':'Center',
+    'width':'100%',
+    'alignItems':'center',
+    'height': '70vh'
+}
+
 const Layout=()=>{
 return(
     <>
     <Header />
+    <section style={sectionStyle}>
     <Outlet></Outlet>
+    </section>
     <Footer />
     </>
 )
