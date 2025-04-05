@@ -7,16 +7,20 @@ import NotFoundPage from './components/404-page/NotFoundPage';
 import Layout from './components/layout/Layout';
 import Dashboard from './components/layout/Dashboard';
 import AboutMe from './components/layout/AboutMe';
+import Contact from './components/layout/Contact';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
     <Route element={<Login />} path='/'></Route>
+
     <Route path='/dashboard' element={<Layout />}>
     <Route path='/dashboard' element={<Dashboard />}></Route>
     <Route path='/dashboard/about' element={<AboutMe />}></Route>
+    <Route path='/dashboard/contact' element={<Contact />}></Route>
     </Route>
+
     <Route path='*' element={<NotFoundPage />}></Route>
     </Routes>
     </BrowserRouter>
