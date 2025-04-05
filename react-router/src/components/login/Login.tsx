@@ -8,7 +8,7 @@ const navigate=useNavigate();
 
 const handleSubmit=()=>{
     localStorage.setItem('token','1234');
-    navigate('/dashboard/')
+    navigate('/dashboard/',{replace:true})
 }
 
 return(
