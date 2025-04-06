@@ -1,0 +1,42 @@
+.form-container{
+    background-image: linear-gradient(to top, #f43b47 38%, #453a94 92%);
+    padding: 5px 20px 20px 20px;
+    min-width: 300px;
+    box-shadow: 0 0 10px gray;
+    border-radius: 8px;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container input{
+    width: 98%;
+    height: 35px;
+    padding-left: 3px;
+    border:none;
+    color:#ffff;
+    border-bottom:1px solid black;
+    background-color:transparent;
+    outline: none;
+}
+.form-container input :focus{
+    outline : none;
+    border:1px solid white;
+}
+.form-container input::placeholder{
+    color : white;
+    font-size: 13px;
+    padding-left: 8px;
+}
+.form-container .label{
+    display: flex;
+    text-align: start;
+    font-weight: 600;
+}
+.form-container button{
+    padding: 10px 30px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
