@@ -4,7 +4,7 @@ import  '../../styles/navbar.css';
 
 const NavbarStyle={
 'display':'flex',
-'justifyContent':'space-between',
+'justifyContent':'space-around',
 'alignItems':'center'
 }
 
