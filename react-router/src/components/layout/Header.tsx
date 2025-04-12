@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navlinks } from '../../constants';
 import  '../../styles/navbar.css';
+import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
+import IconButton  from '@mui/material/IconButton';
+import  Badge  from '@mui/material/Badge';
+import { CartProductContext } from '../../context/SavedCartProduct';
 
 const NavbarStyle={
 'display':'flex',
 'justifyContent':'space-around',
 'alignItems':'center',
-'box-shadow': '0 0 3px black'
+'boxShadow': '0 0 3px black'
 }
 
 const NavbarLinkStyle={
@@ -23,6 +27,7 @@ const NavbarLinkStyle={
 
 const Header=()=>{
     const [active,setActive]=useState('');
+    const {cartproduct,setCartProduct}=useContext(CartProductContext);
 
     useEffect(()=>{
     console.log(window.location.pathname.split('/dashboard/'));
@@ -31,6 +36,10 @@ const Header=()=>{
     if(currpath=='/') setActive('Home');
     else if(currpath=='/about') setActive('About');
     else if(currpath=='/contact') setActive('Contact');
+
+    return()=> {
+        setActive('');
+    }
 
     },[])
 
@@ -50,6 +59,13 @@ return(
                     ))
                 }
             </nav>  
+            <span>
+            <IconButton>
+            <Badge badgeContent={cartproduct.length ||0} color="primary" showZero>
+                <AddShoppingCartSharpIcon />
+            </Badge>
+            </IconButton>
+            </span>
         </div>
     </header>
 )

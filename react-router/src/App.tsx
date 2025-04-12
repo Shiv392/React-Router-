@@ -20,10 +20,12 @@ const AboutMe = lazy(()=> import('./components/layout/AboutMe'));
 const Contact = lazy(()=> import('./components/layout/Contact'));
 
 import AuthGuardWrapper from './Authentication/AuthGuardWrapper';
+import { CartProductProvider } from './context/SavedCartProduct';
 
 function App() {
   return (
-    <BrowserRouter>
+    <CartProductProvider>
+      <BrowserRouter>
     <Suspense fallback={<h1>Loading....</h1>}>
     <Routes>
     <Route element={<Login />} path='/'></Route>
@@ -42,6 +44,7 @@ function App() {
     </Routes>
     </Suspense>
     </BrowserRouter>
+    </CartProductProvider>
   )
 }
 
