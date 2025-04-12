@@ -19,6 +19,7 @@ const Dashboard = () => {
     }, [])
 
     const filterProduct = (productname: string) => {
+        console.log('product name------->',productname)
         if (productname.trim().length == 0) {
             setFilterList(productlist);
         }
