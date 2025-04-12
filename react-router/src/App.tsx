@@ -21,6 +21,7 @@ const Contact = lazy(()=> import('./components/layout/Contact'));
 
 import AuthGuardWrapper from './Authentication/AuthGuardWrapper';
 import { CartProductProvider } from './context/SavedCartProduct';
+import CartList from './components/Cart';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
     <Route path='/dashboard' element={<Dashboard />}></Route>
     <Route path='/dashboard/about' element={<AboutMe />}></Route>
     <Route path='/dashboard/contact' element={<Contact />}></Route>
+    <Route path='/dashboard/savedcart' element={<CartList />}></Route>
     </Route>
 
     <Route path='*' element={<NotFoundPage />}></Route>

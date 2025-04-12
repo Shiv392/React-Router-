@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { navlinks } from '../../constants';
 import  '../../styles/navbar.css';
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
@@ -28,6 +28,7 @@ const NavbarLinkStyle={
 const Header=()=>{
     const [active,setActive]=useState('');
     const {cartproduct,setCartProduct}=useContext(CartProductContext);
+    const navigate = useNavigate();
 
     useEffect(()=>{
     console.log(window.location.pathname.split('/dashboard/'));
@@ -48,6 +49,10 @@ const Header=()=>{
         setActive(link.label);
     }
 
+    const addToCartBtnClick=()=>{
+     navigate('/dashboard/savedcart');
+    }
+
 return(
     <header>
         <div style={NavbarStyle}>
@@ -60,7 +65,7 @@ return(
                 }
             </nav>  
             <span>
-            <IconButton>
+            <IconButton onClick={()=> addToCartBtnClick()}>
             <Badge badgeContent={cartproduct.length ||0} color="primary" showZero>
                 <AddShoppingCartSharpIcon />
             </Badge>
