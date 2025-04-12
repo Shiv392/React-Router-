@@ -1,5 +1,8 @@
 import React, { memo } from 'react';
 import '../../styles/ShoppingPage.css';
+import  IconButton  from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 
 const ShoppingPage=({itemlist=[]})=>{
 
@@ -17,6 +20,9 @@ return(
              <img src={item.image} alt={item.title} className="card-img" />
              
              <p>${item.price}</p>
+             <IconButton>
+              <AddShoppingCartSharpIcon />
+             </IconButton>
            </div>
          ))}
        </div>
