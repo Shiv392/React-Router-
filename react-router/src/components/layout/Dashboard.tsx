@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import FilterInput from '../Shopping-page/FilterInput';
+import ShoppingPage from '../Shopping-page/ShoppingPage';
 
-const Dashboard=()=>{
-    return(
-        <h1>Dashboard Component</h1>
+const Dashboard = () => {
+
+    const [productlist, setProductList] = useState([]);
+    const [filterproductlist, setFilterList] = useState([]);
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then((res) => {
+                console.log('res----------->', res)
+                setProductList(res);
+                setFilterList(res);
+            })
+            .catch(err => console.log('error------->', err));
+    }, [])
+
+    const filterProduct = (productname: string) => {
+        if (productname.trim().length == 0) {
+            setFilterList(productlist);
+        }
+        else {
+            const filterProduct = productlist.filter(ele =>
+                ele.category.toLowerCase().includes(productname) ||
+                ele.description.toLowerCase().includes(productname) ||
+                ele.title.toLowerCase().includes(productname)
+            )
+            setFilterList(filterProduct);
+        }
+    }
+
+    return (
+        <div>
+            <h1>Shopping Page</h1>
+            <FilterInput filteritem={filterProduct} />
+            <div>
+                <ShoppingPage itemlist={filterproductlist} />
+            </div>
+        </div>
     )
 }
 export default Dashboard;

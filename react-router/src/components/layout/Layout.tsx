@@ -1,7 +1,5 @@
-import React from "react";  
 import Header from "./Header";
 import Footer from "./Footer";
-import Dashboard from "./Dashboard";
 import { Outlet } from "react-router-dom";
 
 const sectionStyle={
@@ -9,7 +7,7 @@ const sectionStyle={
     'justifyContent':'Center',
     'width':'100%',
     'alignItems':'center',
-    'height': '70vh'
+    // 'height': '70vh'
 }
 
 const Layout=()=>{

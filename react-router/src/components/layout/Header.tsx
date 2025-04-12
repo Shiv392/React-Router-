@@ -4,8 +4,9 @@ import  '../../styles/navbar.css';
 
 const NavbarStyle={
 'display':'flex',
-'justifyContent':'space-between',
-'alignItems':'center'
+'justifyContent':'space-around',
+'alignItems':'center',
+'box-shadow': '0 0 3px black'
 }
 
 const NavbarLinkStyle={
