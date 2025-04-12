@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { navlinks } from '../../constants';
 import  '../../styles/navbar.css';
 
 const NavbarStyle={
@@ -19,18 +20,6 @@ const NavbarLinkStyle={
         'color':'red'
     }
 }
-
-export const navlinks : any[]=[
-    {
-        label:'Home',route : '/dashboard/'
-    },
-    {
-        label : 'About','route':'/dashboard/about'
-    },
-    {
-        label : 'Contact','route':'/dashboard/contact'
-    }
-]
 
 const Header=()=>{
     const [active,setActive]=useState('');

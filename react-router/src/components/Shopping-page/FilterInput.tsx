@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/FilterInput.css';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -6,9 +6,13 @@ import CloseIcon from '@mui/icons-material/Close';
 const FilterInput=({filteritem})=>{
     const [name,setName]=useState('');
 
-    const handleFilterInput=()=>{
-        filteritem(name.toLowerCase());
-    }
+    useEffect(()=>{
+        const delayDebounce = setTimeout(() => {
+            filteritem(name.toLowerCase());
+          }, 500); // 300ms debounce delay
+      
+          return () => clearTimeout(delayDebounce); // Cleanup old timers
+    },[name])
 
     const clearSearch=()=>{
         setName('');
@@ -17,7 +21,7 @@ const FilterInput=({filteritem})=>{
 
 return(
     <div style={{'display':'flex'}}>
-        <input type='text' placeholder='Search Products' value={name} onChange={(e)=> setName(e.target.value)} onKeyUp={handleFilterInput} />
+        <input type='text' placeholder='Search Products' value={name} onChange={(e)=> setName(e.target.value)}/>
         <span>
         {
             name.trim().length>0 ?

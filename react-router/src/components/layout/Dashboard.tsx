@@ -35,7 +35,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1>Shopping Page</h1>
+            <h2>Shopping Page</h2>
             <FilterInput filteritem={filterProduct} />
             <div>
                 <ShoppingPage itemlist={filterproductlist} />
