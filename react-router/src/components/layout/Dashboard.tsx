@@ -19,6 +19,7 @@ const Dashboard = () => {
     }, [])
 
     const filterProduct = (productname: string) => {
+        console.log('product name------->',productname)
         if (productname.trim().length == 0) {
             setFilterList(productlist);
         }
@@ -34,7 +35,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1>Shopping Page</h1>
+            <h2>Shopping Page</h2>
             <FilterInput filteritem={filterProduct} />
             <div>
                 <ShoppingPage itemlist={filterproductlist} />

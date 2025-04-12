@@ -20,10 +20,13 @@ const AboutMe = lazy(()=> import('./components/layout/AboutMe'));
 const Contact = lazy(()=> import('./components/layout/Contact'));
 
 import AuthGuardWrapper from './Authentication/AuthGuardWrapper';
+import { CartProductProvider } from './context/SavedCartProduct';
+import CartList from './components/Cart';
 
 function App() {
   return (
-    <BrowserRouter>
+    <CartProductProvider>
+      <BrowserRouter>
     <Suspense fallback={<h1>Loading....</h1>}>
     <Routes>
     <Route element={<Login />} path='/'></Route>
@@ -36,12 +39,14 @@ function App() {
     <Route path='/dashboard' element={<Dashboard />}></Route>
     <Route path='/dashboard/about' element={<AboutMe />}></Route>
     <Route path='/dashboard/contact' element={<Contact />}></Route>
+    <Route path='/dashboard/savedcart' element={<CartList />}></Route>
     </Route>
 
     <Route path='*' element={<NotFoundPage />}></Route>
     </Routes>
     </Suspense>
     </BrowserRouter>
+    </CartProductProvider>
   )
 }
 

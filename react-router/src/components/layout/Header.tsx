@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { navlinks } from '../../constants';
 import  '../../styles/navbar.css';
+import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
+import IconButton  from '@mui/material/IconButton';
+import  Badge  from '@mui/material/Badge';
+import { CartProductContext } from '../../context/SavedCartProduct';
 
 const NavbarStyle={
 'display':'flex',
 'justifyContent':'space-around',
 'alignItems':'center',
-'box-shadow': '0 0 3px black'
+'boxShadow': '0 0 3px black'
 }
 
 const NavbarLinkStyle={
@@ -20,20 +25,10 @@ const NavbarLinkStyle={
     }
 }
 
-export const navlinks : any[]=[
-    {
-        label:'Home',route : '/dashboard/'
-    },
-    {
-        label : 'About','route':'/dashboard/about'
-    },
-    {
-        label : 'Contact','route':'/dashboard/contact'
-    }
-]
-
 const Header=()=>{
     const [active,setActive]=useState('');
+    const {cartproduct,setCartProduct}=useContext(CartProductContext);
+    const navigate = useNavigate();
 
     useEffect(()=>{
     console.log(window.location.pathname.split('/dashboard/'));
@@ -43,11 +38,19 @@ const Header=()=>{
     else if(currpath=='/about') setActive('About');
     else if(currpath=='/contact') setActive('Contact');
 
+    return()=> {
+        setActive('');
+    }
+
     },[])
 
     const handleClick=(link : {label:string,route:string})=>{
         console.log('link--------->',link);
         setActive(link.label);
+    }
+
+    const addToCartBtnClick=()=>{
+     navigate('/dashboard/savedcart');
     }
 
 return(
@@ -61,6 +64,13 @@ return(
                     ))
                 }
             </nav>  
+            <span>
+            <IconButton onClick={()=> addToCartBtnClick()}>
+            <Badge badgeContent={cartproduct.length ||0} color="primary" showZero>
+                <AddShoppingCartSharpIcon />
+            </Badge>
+            </IconButton>
+            </span>
         </div>
     </header>
 )
