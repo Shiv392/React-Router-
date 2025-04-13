@@ -7,7 +7,8 @@ const FooterStyle={
     'width': '100%',
     'background': '#f8f8f8',
     'textAlign': 'center',
-    'padding': '10px'
+    'padding': '10px',
+    'backgroundColor':'#ffabe4'
 }
 
 const Footer=()=>{

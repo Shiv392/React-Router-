@@ -7,7 +7,8 @@ const sectionStyle={
     'justifyContent':'Center',
     'width':'100%',
     'alignItems':'center',
-    // 'height': '70vh'
+    'paddingTop':'70px' // make sure this line exists
+    
 }
 
 const Layout=()=>{

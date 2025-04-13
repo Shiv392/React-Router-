@@ -11,7 +11,14 @@ const NavbarStyle={
 'display':'flex',
 'justifyContent':'space-around',
 'alignItems':'center',
-'boxShadow': '0 0 3px black'
+'boxShadow': '0 0 3px black',
+'position' : 'fixed',
+'top':'0',
+'left':'0',
+'right':'0',
+'height':'70px',
+'backgroundColor':'#ffabe4',
+'zIndex':'1000'
 }
 
 const NavbarLinkStyle={
