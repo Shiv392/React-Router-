@@ -5,7 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import { CartProductContext } from '../../context/SavedCartProduct';
 
-const ShoppingPage=({itemlist=[]})=>{
+const ShoppingPage=({itemlist})=>{
    const {cartproduct,setCartProduct}=useContext(CartProductContext);
 
     console.log('itemlist--------->',itemlist);

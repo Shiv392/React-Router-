@@ -6,20 +6,26 @@ const Dashboard = () => {
 
     const [productlist, setProductList] = useState([]);
     const [filterproductlist, setFilterList] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        getProductList();
+    }, [])
+
+    const getProductList = () => {
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then((res) => {
                 console.log('res----------->', res)
                 setProductList(res);
                 setFilterList(res);
+                setLoading(false); // done loading
             })
             .catch(err => console.log('error------->', err));
-    }, [])
+    }
 
     const filterProduct = (productname: string) => {
-        console.log('product name------->',productname)
+        console.log('product name------->', productname)
         if (productname.trim().length == 0) {
             setFilterList(productlist);
         }
@@ -36,10 +42,14 @@ const Dashboard = () => {
     return (
         <div>
             <h2>Shopping Page</h2>
-            <FilterInput filteritem={filterProduct} />
-            <div>
-                <ShoppingPage itemlist={filterproductlist} />
-            </div>
+            {loading ? (
+                <h3>Loading...</h3>
+            ) : (
+                <>
+                    <FilterInput filteritem={filterProduct} />
+                    <ShoppingPage itemlist={filterproductlist} />
+                </>
+            )}
         </div>
     )
 }
