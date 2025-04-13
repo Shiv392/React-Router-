@@ -63,7 +63,7 @@ const Header=()=>{
 return(
     <header>
         <div style={NavbarStyle}>
-            <h3>Welcome To My Profile</h3>
+            <h3>Welcome To ShopsiFy</h3>
             <nav style={NavbarLinkStyle}>
                 {
                     navlinks.map((link,index)=>(
