@@ -40,7 +40,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div>
+        <div style={{'width':'100%','padding':'10px'}}>
             <h2>Shopping Page</h2>
             {loading ? (
                 <h3>Loading...</h3>

@@ -29,7 +29,7 @@ return(
          <div className="card-grid">
          {itemlist.map((item) => (
            <div className="card" key={item.id}>
-            <h3>{item.title}</h3>
+            <h3>{item.title && item.title.length>20 ? item.title.substring(0,40)+'...' : item.title}</h3>
              <img src={item.image} alt={item.title} className="card-img" />
              
              <p>${item.price}</p>
