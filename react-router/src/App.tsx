@@ -27,7 +27,7 @@ function App() {
   return (
     <CartProductProvider>
       <BrowserRouter>
-    <Suspense fallback={<h1>Loading....</h1>}>
+    <Suspense>
     <Routes>
     <Route element={<Login />} path='/'></Route>
 
